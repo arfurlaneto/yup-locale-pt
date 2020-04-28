@@ -1,3 +1,3 @@
-const { pt } = require('./locale');
+import locale from './locale';
 
-module.exports = { pt };
+export default { pt: locale };
