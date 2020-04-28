@@ -1,3 +1,7 @@
 import locale from './locale';
 
-export default { pt: locale };
+export const pt = locale;
+
+export default {
+  pt,
+};
