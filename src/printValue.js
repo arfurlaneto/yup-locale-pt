@@ -1,9 +1,9 @@
 /* https://github.com/jquense/yup/blob/master/src/util/printValue.js */
 
-/* eslint-disable no-restricted-globals */
-/* eslint-disable no-shadow */
-/* eslint-disable func-names */
 /* eslint-disable eqeqeq */
+/* eslint-disable no-restricted-globals */
+/* eslint-disable func-names */
+/* eslint-disable no-shadow */
 
 const { toString } = Object.prototype;
 const errorToString = Error.prototype.toString;
