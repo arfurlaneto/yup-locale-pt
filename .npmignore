@@ -1,2 +1,4 @@
 .editorconfig
 .eslintrc.js
+tests
+jest.config.js

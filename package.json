@@ -6,9 +6,13 @@
     "type": "git",
     "url": "git:github.com/arfurlaneto/yup-locale-pt"
   },
+  "scripts": {
+    "test": "jest"
+  },
   "devDependencies": {
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-plugin-import": "2.20.1"
+    "eslint-plugin-import": "2.20.1",
+    "jest": "^25.5.0"
   }
 }
