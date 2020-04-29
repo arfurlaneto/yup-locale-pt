@@ -3,8 +3,8 @@ import printValue from './printValue';
 export const mixed = {
   default: '${path} é inválido',
   required: '${path} é obrigatório',
-  oneOf: '${path} deve ser um dos seguintes valores: ${values}',
-  notOneOf: '${path} não deve ser nenhum dos seguintes valores: ${values}',
+  oneOf: '${path} deve ter um dos seguintes valores: ${values}',
+  notOneOf: '${path} não deve ter nenhum dos seguintes valores: ${values}',
   notType: ({
     path, type, value, originalValue,
   }) => {
@@ -12,28 +12,28 @@ export const mixed = {
     let msg = `${`${path} deve ser do tipo \`${type}\`, `
       + `mas o valor final é: \`${printValue(value, true)}\``}${
       isCast
-        ? ` (cast do valor \`${printValue(originalValue, true)}\`).`
-        : '.'}`;
+        ? ` (cast do valor \`${printValue(originalValue, true)}\`)`
+        : ''}`;
 
     if (value === null) {
-      msg += '\n Se a intenção era usar "null" como um valor em branco marque o esquema como `.nullable()`';
+      msg += '\nse a intenção era usar "null" como um valor em branco marque o esquema como `.nullable()`';
     }
 
     return msg;
   },
-  defined: '${path} deve ser definido',
+  defined: '${path} não deve ser indefinido',
 };
 
 export const string = {
   length: '${path} deve ter exatamente ${length} caracteres',
   min: '${path} deve ter pelo menos ${min} caracteres',
   max: '${path} deve ter no máximo ${max} caracteres',
-  matches: '${path} deve corresponder ao seguinte: "${regex}"',
+  matches: '${path} deve corresponder ao padrão: "${regex}"',
   email: '${path} deve ser um e-mail válido',
   url: '${path} deve ser uma URL válida',
-  trim: '${path} deve ser uma string sem espaços adicionais',
-  lowercase: '${path} deve ser uma string minúscula',
-  uppercase: '${path} deve ser uma string maiúscula',
+  trim: '${path} não deve conter espaços adicionais antes nem depois',
+  lowercase: '${path} deve estar em letras minúsculas',
+  uppercase: '${path} deve estar em letras maiúsculas',
 };
 
 export const number = {
@@ -49,18 +49,18 @@ export const number = {
 
 export const date = {
   min: '${path} deve ser posterior a ${min}',
-  max: '${path} deve se anterior a ${max}',
+  max: '${path} deve ser anterior a ${max}',
 };
 
 export const boolean = {};
 
 export const object = {
-  noUnknown: '${path} tem chaves não especificadas: ${unknown}',
+  noUnknown: '${path} tem chaves desconhecidas: ${unknown}',
 };
 
 export const array = {
-  min: '${path} deve ter pelo menos ${min} items',
-  max: '${path} deve ter menos que ou ${max} itens',
+  min: '${path} deve ter pelo menos ${min} itens',
+  max: '${path} deve ter no máximo ${max} itens',
 };
 
 export default {
