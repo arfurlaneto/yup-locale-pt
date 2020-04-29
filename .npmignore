@@ -2,3 +2,5 @@
 .eslintrc.js
 tests
 jest.config.js
+src
+babel.config.js

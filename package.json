@@ -1,15 +1,17 @@
 {
   "name": "yup-locale-pt",
-  "version": "0.0.1",
-  "main": "src/index.js",
+  "version": "0.0.2",
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "git:github.com/arfurlaneto/yup-locale-pt"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "babel src --out-dir lib --delete-dir-on-start"
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
     "babel-jest": "^25.5.0",
