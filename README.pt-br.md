@@ -31,3 +31,10 @@ import { ptForm } from 'yup-locale-pt';
 
 Yup.setLocale(ptForm);
 ```
+...ou...
+```js
+import * as Yup from 'yup';
+import { ptShort } from 'yup-locale-pt';
+
+Yup.setLocale(ptShort);
+```
