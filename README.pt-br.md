@@ -3,9 +3,10 @@
 [Read in English](README.md)
 
 ## Estilos
-Há diferentes estilos de tradução:
-- `pt` é a tradução padrão do arquivo `locale.js` do Yup. Exemplo: *'nome é obrigatório'*
-- `ptForm` é otimizado para ser exibido em campos de formulários. Ele não repete o nome do campo e é formatado como uma frase. Exemplo: *'O campo é obrigatório.'*
+Há três estilos de tradução:
+- `pt` é a tradução padrão do arquivo `locale.js` do Yup. Exemplo: *'nome deve ter exatamente 20 caracteres'*
+- `ptForm` é otimizado para ser exibido em campos de formulários. Ele não repete o nome do campo e é formatado como uma frase. Exemplo: *'O campo deve ter exatamente 20 caracteres.'*
+- `ptShort` é parecido com o `ptForm`, mas as mensagens são mais curtas. Exemplo: *'Deve ter exatamente 20 caracteres.'*
 
 ## Uso
 Instale com o npm ...

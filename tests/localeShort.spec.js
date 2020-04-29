@@ -1,8 +1,8 @@
 import * as yup from 'yup';
 
-import { pt } from '../src';
+import { ptShort } from '../src';
 
-yup.setLocale(pt);
+yup.setLocale(ptShort);
 
 yup.addMethod(yup.mixed, 'alwaysInvalid', function method() {
   return this.test({
@@ -36,13 +36,13 @@ describe('locale', () => {
       await schema.validate(data, { abortEarly: false, strict: true });
     } catch (err) {
       expect(err.errors.length).toEqual(7);
-      expect(err.errors[0]).toStrictEqual('defaultField é inválido');
-      expect(err.errors[1]).toStrictEqual('requiredField é obrigatório');
-      expect(err.errors[2]).toStrictEqual('oneOfField deve ter um dos seguintes valores: 1, 2, 3');
-      expect(err.errors[3]).toStrictEqual('notOneOfField não deve ter nenhum dos seguintes valores: 1, 2, 3');
-      expect(err.errors[4]).toStrictEqual('notTypeFieldNullIntention deve ser do tipo `date`, mas o valor final é: `null`\nse a intenção era usar "null" como um valor em branco marque o esquema como `.nullable()`');
-      expect(err.errors[5]).toStrictEqual('notTypeField deve ser do tipo `date`, mas o valor final é: `"not a date"`');
-      expect(err.errors[6]).toStrictEqual('definedField não deve ser indefinido');
+      expect(err.errors[0]).toStrictEqual('Inválido.');
+      expect(err.errors[1]).toStrictEqual('Obrigatório.');
+      expect(err.errors[2]).toStrictEqual('Deve ter um dos seguintes valores: 1, 2, 3.');
+      expect(err.errors[3]).toStrictEqual('Não deve ter nenhum dos seguintes valores: 1, 2, 3.');
+      expect(err.errors[4]).toStrictEqual('Deve ser do tipo `date`, mas o valor final é: `null`.\nSe a intenção era usar "null" como um valor em branco marque o esquema como `.nullable()`.');
+      expect(err.errors[5]).toStrictEqual('Deve ser do tipo `date`, mas o valor final é: `"not a date"`.');
+      expect(err.errors[6]).toStrictEqual('Não deve ser indefinido.');
     }
   });
 
@@ -61,8 +61,8 @@ describe('locale', () => {
       await schema.validate(data, { abortEarly: false, strict: false });
     } catch (err) {
       expect(err.errors.length).toEqual(2);
-      expect(err.errors[0]).toStrictEqual('notTypeFieldNullIntention deve ser do tipo `date`, mas o valor final é: `Invalid Date`');
-      expect(err.errors[1]).toStrictEqual('notTypeField deve ser do tipo `date`, mas o valor final é: `Invalid Date` (cast do valor `"not a date"`)');
+      expect(err.errors[0]).toStrictEqual('Deve ser do tipo `date`, mas o valor final é: `Invalid Date`.');
+      expect(err.errors[1]).toStrictEqual('Deve ser do tipo `date`, mas o valor final é: `Invalid Date` (cast do valor `"not a date"`).');
     }
   });
 
@@ -95,15 +95,15 @@ describe('locale', () => {
       await schema.validate(data, { abortEarly: false, strict: true });
     } catch (err) {
       expect(err.errors.length).toEqual(9);
-      expect(err.errors[0]).toStrictEqual('lengthField deve ter exatamente 5 caracteres');
-      expect(err.errors[1]).toStrictEqual('minField deve ter pelo menos 5 caracteres');
-      expect(err.errors[2]).toStrictEqual('maxField deve ter no máximo 5 caracteres');
-      expect(err.errors[3]).toStrictEqual('matchesField deve corresponder ao padrão: "/\\d+/"');
-      expect(err.errors[4]).toStrictEqual('emailField deve ser um e-mail válido');
-      expect(err.errors[5]).toStrictEqual('urlField deve ser uma URL válida');
-      expect(err.errors[6]).toStrictEqual('trimField não deve conter espaços adicionais no início nem no fim');
-      expect(err.errors[7]).toStrictEqual('lowercaseField deve estar em letras minúsculas');
-      expect(err.errors[8]).toStrictEqual('uppercaseField deve estar em letras maiúsculas');
+      expect(err.errors[0]).toStrictEqual('Deve ter exatamente 5 caracteres.');
+      expect(err.errors[1]).toStrictEqual('Deve ter pelo menos 5 caracteres.');
+      expect(err.errors[2]).toStrictEqual('Deve ter no máximo 5 caracteres.');
+      expect(err.errors[3]).toStrictEqual('Deve corresponder ao padrão: "/\\d+/".');
+      expect(err.errors[4]).toStrictEqual('Deve ser um e-mail válido.');
+      expect(err.errors[5]).toStrictEqual('Deve ser uma URL válida.');
+      expect(err.errors[6]).toStrictEqual('Não deve conter espaços adicionais no início nem no fim.');
+      expect(err.errors[7]).toStrictEqual('Deve estar em letras minúsculas.');
+      expect(err.errors[8]).toStrictEqual('Deve estar em letras maiúsculas.');
     }
   });
 
@@ -132,17 +132,17 @@ describe('locale', () => {
       await schema.validate(data, { abortEarly: false, strict: true });
     } catch (err) {
       expect(err.errors.length).toEqual(7);
-      expect(err.errors[0]).toStrictEqual('minField deve ser maior ou igual a 10');
-      expect(err.errors[1]).toStrictEqual('maxField deve menor ou igual a 10');
-      expect(err.errors[2]).toStrictEqual('lessThanField deve ser menor que 10');
-      expect(err.errors[3]).toStrictEqual('moreThanField deve ser maior que 10');
-      expect(err.errors[4]).toStrictEqual('positiveField deve ser um número positivo');
-      expect(err.errors[5]).toStrictEqual('negativeField deve ser um número negativo');
-      expect(err.errors[6]).toStrictEqual('integerField deve ser um número inteiro');
+      expect(err.errors[0]).toStrictEqual('Deve ser maior ou igual a 10.');
+      expect(err.errors[1]).toStrictEqual('Deve menor ou igual a 10.');
+      expect(err.errors[2]).toStrictEqual('Deve ser menor que 10.');
+      expect(err.errors[3]).toStrictEqual('Deve ser maior que 10.');
+      expect(err.errors[4]).toStrictEqual('Deve ser um número positivo.');
+      expect(err.errors[5]).toStrictEqual('Deve ser um número negativo.');
+      expect(err.errors[6]).toStrictEqual('Deve ser um número inteiro.');
     }
   });
 
-  it('should return localized messages for date group', async () => {
+  it('should return localized messages for date group.', async () => {
     const schema = yup.object().shape({
       minField: yup.date().min(new Date(2020, 1, 1)),
       maxField: yup.date().max(new Date(2020, 1, 1)),
@@ -157,8 +157,8 @@ describe('locale', () => {
       await schema.validate(data, { abortEarly: false, strict: true });
     } catch (err) {
       expect(err.errors.length).toEqual(2);
-      expect(err.errors[0]).toStrictEqual('minField deve ser posterior a 2020-02-01T03:00:00.000Z');
-      expect(err.errors[1]).toStrictEqual('maxField deve ser anterior a 2020-02-01T03:00:00.000Z');
+      expect(err.errors[0]).toStrictEqual('Deve ser posterior a 2020-02-01T03:00:00.000Z.');
+      expect(err.errors[1]).toStrictEqual('Deve ser anterior a 2020-02-01T03:00:00.000Z.');
     }
   });
 
@@ -173,7 +173,7 @@ describe('locale', () => {
       await schema.validate(data, { abortEarly: false, strict: true });
     } catch (err) {
       expect(err.errors.length).toEqual(1);
-      expect(err.errors[0]).toStrictEqual('this tem chaves desconhecidas: unknownField');
+      expect(err.errors[0]).toStrictEqual('Existem chaves desconhecidas: unknownField.');
     }
   });
 
@@ -192,8 +192,8 @@ describe('locale', () => {
       await schema.validate(data, { abortEarly: false, strict: true });
     } catch (err) {
       expect(err.errors.length).toEqual(2);
-      expect(err.errors[0]).toStrictEqual('minField deve ter pelo menos 5 itens');
-      expect(err.errors[1]).toStrictEqual('maxField deve ter no máximo 5 itens');
+      expect(err.errors[0]).toStrictEqual('Deve ter pelo menos 5 itens.');
+      expect(err.errors[1]).toStrictEqual('Deve ter no máximo 5 itens.');
     }
   });
 });

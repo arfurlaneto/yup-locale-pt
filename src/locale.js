@@ -31,14 +31,14 @@ export const string = {
   matches: '${path} deve corresponder ao padrão: "${regex}"',
   email: '${path} deve ser um e-mail válido',
   url: '${path} deve ser uma URL válida',
-  trim: '${path} não deve conter espaços adicionais antes nem depois',
+  trim: '${path} não deve conter espaços adicionais no início nem no fim',
   lowercase: '${path} deve estar em letras minúsculas',
   uppercase: '${path} deve estar em letras maiúsculas',
 };
 
 export const number = {
   min: '${path} deve ser maior ou igual a ${min}',
-  max: '${path} dever menor ou igual a ${max}',
+  max: '${path} deve menor ou igual a ${max}',
   lessThan: '${path} deve ser menor que ${less}',
   moreThan: '${path} deve ser maior que ${more}',
   notEqual: '${path} não deve ser igual a ${notEqual}',

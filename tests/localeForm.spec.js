@@ -133,7 +133,7 @@ describe('locale', () => {
     } catch (err) {
       expect(err.errors.length).toEqual(7);
       expect(err.errors[0]).toStrictEqual('O campo deve ser maior ou igual a 10.');
-      expect(err.errors[1]).toStrictEqual('O campo dever menor ou igual a 10.');
+      expect(err.errors[1]).toStrictEqual('O campo deve menor ou igual a 10.');
       expect(err.errors[2]).toStrictEqual('O campo deve ser menor que 10.');
       expect(err.errors[3]).toStrictEqual('O campo deve ser maior que 10.');
       expect(err.errors[4]).toStrictEqual('O campo deve ser um número positivo.');

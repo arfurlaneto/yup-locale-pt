@@ -38,7 +38,7 @@ export const string = {
 
 export const number = {
   min: 'O campo deve ser maior ou igual a ${min}.',
-  max: 'O campo dever menor ou igual a ${max}.',
+  max: 'O campo deve menor ou igual a ${max}.',
   lessThan: 'O campo deve ser menor que ${less}.',
   moreThan: 'O campo deve ser maior que ${more}.',
   notEqual: 'O campo não deve ser igual a ${notEqual}.',

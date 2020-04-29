@@ -3,9 +3,10 @@
 [Ler em Português](README.pt-br.md)
 
 ## Flavors
-There are "flavors" of translation:
-- `pt`  is the default translation of Yup's `locale.js` file. Example: *'name is required'*.
-- `ptForm` is optimized to be shown in form fields. It does not repeat the field name and is formatted like a sentence. Example: *'The field is required'*.
+There are three "flavors" of translation:
+- `pt`  is the default translation of Yup's `locale.js` file. Example: *'name must be exactly 20 characters'*.
+- `ptForm` is optimized to be shown in form fields. It does not repeat the field name and is formatted like a sentence. Example: *'The field must be exactly 20 characters.'*.
+- `ptShort` is like `ptForm`, but shorter. Example: *'Must be exactly 20 characters.'* .
 
 ## Usage
 Install with npm ...
