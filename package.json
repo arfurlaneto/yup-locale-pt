@@ -2,7 +2,6 @@
   "name": "yup-locale-pt",
   "version": "0.0.5",
   "description": "Brazilian Portuguese Localization for Yup",
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "main": "lib/index.js",
   "repository": {
     "type": "git",
