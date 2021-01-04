@@ -12,13 +12,13 @@ const symbolToString = typeof Symbol !== 'undefined' ? Symbol.prototype.toString
 
 const SYMBOL_REGEXP = /^Symbol\((.*)\)(.*)$/;
 
-function printNumber(val) {
+function printNumber(val: any): string {
   if (val != +val) return 'NaN';
   const isNegativeZero = val === 0 && 1 / val < 0;
   return isNegativeZero ? '-0' : `${val}`;
 }
 
-function printSimpleValue(val, quoteStrings = false) {
+function printSimpleValue(val: any, quoteStrings: boolean = false): string | null {
   if (val == null || val === true || val === false) return `${val}`;
 
   const typeOf = typeof val;
@@ -35,13 +35,13 @@ function printSimpleValue(val, quoteStrings = false) {
   return null;
 }
 
-export default function printValue(value, quoteStrings) {
+export default function printValue(value: any, quoteStrings: boolean): string {
   const result = printSimpleValue(value, quoteStrings);
   if (result !== null) return result;
 
   return JSON.stringify(
     value,
-    function (key, value) {
+    function (key: string, value: any) {
       const result = printSimpleValue(this[key], quoteStrings);
       if (result !== null) return result;
       return value;

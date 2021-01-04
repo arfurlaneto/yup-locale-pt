@@ -7,7 +7,7 @@ export const mixed = {
   notOneOf: 'O campo não deve ter nenhum dos seguintes valores: ${values}.',
   notType: ({
     type, value, originalValue,
-  }) => {
+  }: any) => {
     const isCast = originalValue != null && originalValue !== value;
     let msg = `${`O campo deve ser do tipo \`${type}\`, `
       + `mas o valor final é: \`${printValue(value, true)}\``}${
