@@ -1,26 +1,47 @@
 {
   "name": "yup-locale-pt",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Brazilian Portuguese Localization for Yup",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git:github.com/arfurlaneto/yup-locale-pt"
   },
   "scripts": {
     "test": "jest",
-    "build": "babel src --out-dir lib --delete-dir-on-start"
+    "build": "npm run build:types && npm run build:js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "babel src --out-dir lib --extensions \".ts\" --source-maps inline"
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.5",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-typescript": "^7.12.7",
+    "@types/jest": "^26.0.19",
+    "@typescript-eslint/eslint-plugin": "4.4.1",
     "babel-jest": "^25.5.0",
+    "commitizen": "^4.2.2",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "2.20.1",
     "eslint-plugin-jest": "^23.8.2",
+    "husky": "^4.3.6",
     "jest": "^25.5.0",
+    "typescript": "^4.1.3",
     "yup": "^0.28.4"
   }
 }

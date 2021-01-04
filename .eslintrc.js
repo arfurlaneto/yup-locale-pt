@@ -5,7 +5,7 @@ module.exports = {
     "jest/globals": true
   },
   extends: [
-    'airbnb-base',
+    'airbnb-typescript/base',
   ],
   globals: {
     Atomics: 'readonly',
@@ -14,6 +14,7 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module',
+    project: './tsconfig.json',
   },
   rules: {
     'no-template-curly-in-string': 'off'

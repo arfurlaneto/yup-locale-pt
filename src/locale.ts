@@ -7,7 +7,7 @@ export const mixed = {
   notOneOf: '${path} não deve ter nenhum dos seguintes valores: ${values}',
   notType: ({
     path, type, value, originalValue,
-  }) => {
+  }: any) => {
     const isCast = originalValue != null && originalValue !== value;
     let msg = `${`${path} deve ser do tipo \`${type}\`, `
       + `mas o valor final é: \`${printValue(value, true)}\``}${
