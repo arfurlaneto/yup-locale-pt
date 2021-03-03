@@ -1,6 +1,6 @@
 {
   "name": "yup-locale-pt",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Brazilian Portuguese Localization for Yup",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
