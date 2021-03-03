@@ -25,9 +25,9 @@ export const mixed = {
 };
 
 export const string = {
-  length: 'Deve ter exatamente ${length} caracteres.',
-  min: 'Deve ter pelo menos ${min} caracteres.',
-  max: 'Deve ter no máximo ${max} caracteres.',
+  length: ({ length }: any) => `Deve ter exatamente ${length} ${length === 1 ? 'caractere' : 'caracteres'}.`,
+  min: ({ min }: any) => `Deve ter pelo menos ${min} ${min === 1 ? 'caractere' : 'caracteres'}.`,
+  max: ({ max }: any) => `Deve ter no máximo ${max} ${max === 1 ? 'caractere' : 'caracteres'}.`,
   matches: 'Deve corresponder ao padrão: "${regex}".',
   email: 'Deve ser um e-mail válido.',
   url: 'Deve ser uma URL válida.',
@@ -59,8 +59,8 @@ export const object = {
 };
 
 export const array = {
-  min: 'Deve ter pelo menos ${min} itens.',
-  max: 'Deve ter no máximo ${max} itens.',
+  min: ({ min } : any) => `Deve ter pelo menos ${min} ${min === 1 ? 'item': 'itens'}.`,
+  max: ({ max } : any) => `Deve ter no máximo ${max} ${max === 1 ? 'item': 'itens'}.`,
 };
 
 export default {

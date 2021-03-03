@@ -68,9 +68,12 @@ describe('locale', () => {
 
   it('should return localized messages for string group', async () => {
     const schema = yup.object().shape({
-      lengthField: yup.string().length(5),
-      minField: yup.string().min(5),
-      maxField: yup.string().max(5),
+      lengthFieldSingular: yup.string().length(1),
+      minFieldSingular: yup.string().min(1),
+      maxFieldSingular: yup.string().max(1),
+      lengthFieldPlural: yup.string().length(5),
+      minFieldPlural: yup.string().min(5),
+      maxFieldPlural: yup.string().max(5),
       matchesField: yup.string().matches(/\d+/),
       emailField: yup.string().email(),
       urlField: yup.string().url(),
@@ -80,9 +83,12 @@ describe('locale', () => {
     });
 
     const data = {
-      lengthField: '1234',
-      minField: '1234',
-      maxField: '123456',
+      lengthFieldSingular: '',
+      minFieldSingular: '',
+      maxFieldSingular: '12',
+      lengthFieldPlural: '1234',
+      minFieldPlural: '1234',
+      maxFieldPlural: '123456',
       matchesField: 'abc',
       emailField: 'not a e-mail',
       urlField: 'no a url',
@@ -94,16 +100,19 @@ describe('locale', () => {
     try {
       await schema.validate(data, { abortEarly: false, strict: true });
     } catch (err) {
-      expect(err.errors.length).toEqual(9);
-      expect(err.errors[0]).toStrictEqual('Deve ter exatamente 5 caracteres.');
-      expect(err.errors[1]).toStrictEqual('Deve ter pelo menos 5 caracteres.');
-      expect(err.errors[2]).toStrictEqual('Deve ter no máximo 5 caracteres.');
-      expect(err.errors[3]).toStrictEqual('Deve corresponder ao padrão: "/\\d+/".');
-      expect(err.errors[4]).toStrictEqual('Deve ser um e-mail válido.');
-      expect(err.errors[5]).toStrictEqual('Deve ser uma URL válida.');
-      expect(err.errors[6]).toStrictEqual('Não deve conter espaços adicionais no início nem no fim.');
-      expect(err.errors[7]).toStrictEqual('Deve estar em letras minúsculas.');
-      expect(err.errors[8]).toStrictEqual('Deve estar em letras maiúsculas.');
+      expect(err.errors.length).toEqual(12);
+      expect(err.errors[0]).toStrictEqual('Deve ter exatamente 1 caractere.');
+      expect(err.errors[1]).toStrictEqual('Deve ter pelo menos 1 caractere.');
+      expect(err.errors[2]).toStrictEqual('Deve ter no máximo 1 caractere.');
+      expect(err.errors[3]).toStrictEqual('Deve ter exatamente 5 caracteres.');
+      expect(err.errors[4]).toStrictEqual('Deve ter pelo menos 5 caracteres.');
+      expect(err.errors[5]).toStrictEqual('Deve ter no máximo 5 caracteres.');
+      expect(err.errors[6]).toStrictEqual('Deve corresponder ao padrão: "/\\d+/".');
+      expect(err.errors[7]).toStrictEqual('Deve ser um e-mail válido.');
+      expect(err.errors[8]).toStrictEqual('Deve ser uma URL válida.');
+      expect(err.errors[9]).toStrictEqual('Não deve conter espaços adicionais no início nem no fim.');
+      expect(err.errors[10]).toStrictEqual('Deve estar em letras minúsculas.');
+      expect(err.errors[11]).toStrictEqual('Deve estar em letras maiúsculas.');
     }
   });
 
@@ -179,21 +188,27 @@ describe('locale', () => {
 
   it('should return localized messages for array group', async () => {
     const schema = yup.object().shape({
-      minField: yup.array().min(5),
-      maxField: yup.array().max(5),
+      minFieldSingular: yup.array().min(1),
+      maxFieldSingular: yup.array().max(1),
+      minFieldPlural: yup.array().min(5),
+      maxFieldPlural: yup.array().max(5),
     });
 
     const data = {
-      minField: [1, 2, 3, 4],
-      maxField: [1, 2, 3, 4, 5, 6],
+      minFieldSingular: [],
+      maxFieldSingular: [1, 2],
+      minFieldPlural: [1, 2, 3, 4],
+      maxFieldPlural: [1, 2, 3, 4, 5, 6],
     };
 
     try {
       await schema.validate(data, { abortEarly: false, strict: true });
     } catch (err) {
-      expect(err.errors.length).toEqual(2);
-      expect(err.errors[0]).toStrictEqual('Deve ter pelo menos 5 itens.');
-      expect(err.errors[1]).toStrictEqual('Deve ter no máximo 5 itens.');
+      expect(err.errors.length).toEqual(4);
+      expect(err.errors[0]).toStrictEqual('Deve ter pelo menos 1 item.');
+      expect(err.errors[1]).toStrictEqual('Deve ter no máximo 1 item.');
+      expect(err.errors[2]).toStrictEqual('Deve ter pelo menos 5 itens.');
+      expect(err.errors[3]).toStrictEqual('Deve ter no máximo 5 itens.');
     }
   });
 });
