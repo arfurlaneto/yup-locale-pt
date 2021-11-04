@@ -142,7 +142,7 @@ describe('locale', () => {
     } catch (err) {
       expect(err.errors.length).toEqual(7);
       expect(err.errors[0]).toStrictEqual('Deve ser maior ou igual a 10.');
-      expect(err.errors[1]).toStrictEqual('Deve menor ou igual a 10.');
+      expect(err.errors[1]).toStrictEqual('Deve ser menor ou igual a 10.');
       expect(err.errors[2]).toStrictEqual('Deve ser menor que 10.');
       expect(err.errors[3]).toStrictEqual('Deve ser maior que 10.');
       expect(err.errors[4]).toStrictEqual('Deve ser um número positivo.');
